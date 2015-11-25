@@ -2,12 +2,14 @@
   "name": "jspm-react",
   "jspm": {
     "dependencies": {
-      "faker": "npm:faker@^3.0.1",
+      "fetch": "github:github/fetch@^0.10.1",
       "jsx": "github:floatdrop/plugin-jsx@^1.1.0",
       "lazy": "npm:lazy.js@^0.4.2",
       "material-ui": "npm:material-ui@^0.13.4",
+      "query-string": "npm:query-string@^3.0.0",
       "react": "npm:react@^0.14.3",
-      "react-dom": "npm:react-dom@^0.14.3"
+      "react-dom": "npm:react-dom@^0.14.3",
+      "react-flexbox": "npm:react-flexbox@^3.0.0"
     },
     "devDependencies": {
       "babel": "npm:babel-core@^5.8.24",

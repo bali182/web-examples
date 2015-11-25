@@ -2,11 +2,11 @@
 
 import React from 'react'
 import ReactDOM from 'react-dom'
-import MyReactComponent from './my-react-component.jsx!'
+import QuoteApp from './quote-app.jsx!'
 
 (() => {
   ReactDOM.render(
-    <MyReactComponent name={"Doge"} />,
+    <QuoteApp/>,
     document.getElementById('react-app')
   )
 })()

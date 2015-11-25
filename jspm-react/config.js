@@ -14,15 +14,19 @@ System.config({
   },
 
   map: {
+    "STRML/react-grid-layout": "github:STRML/react-grid-layout@0.9.2",
     "babel": "npm:babel-core@5.8.34",
     "babel-runtime": "npm:babel-runtime@5.8.34",
     "core-js": "npm:core-js@1.2.6",
     "faker": "npm:faker@3.0.1",
+    "fetch": "github:github/fetch@0.10.1",
     "jsx": "github:floatdrop/plugin-jsx@1.1.0",
     "lazy": "npm:lazy.js@0.4.2",
     "material-ui": "npm:material-ui@0.13.4",
+    "query-string": "npm:query-string@3.0.0",
     "react": "npm:react@0.14.3",
     "react-dom": "npm:react-dom@0.14.3",
+    "react-flexbox": "npm:react-flexbox@3.0.0",
     "github:floatdrop/plugin-jsx@1.1.0": {
       "react-tools": "npm:react-tools@0.13.3"
     },
@@ -522,6 +526,9 @@ System.config({
     "npm:q@1.4.1": {
       "process": "github:jspm/nodelibs-process@0.1.2"
     },
+    "npm:query-string@3.0.0": {
+      "strict-uri-encode": "npm:strict-uri-encode@1.0.2"
+    },
     "npm:randombytes@2.0.1": {
       "buffer": "github:jspm/nodelibs-buffer@0.1.0",
       "crypto": "github:jspm/nodelibs-crypto@0.1.0",
@@ -541,6 +548,11 @@ System.config({
     },
     "npm:react-dom@0.14.3": {
       "react": "npm:react@0.14.3"
+    },
+    "npm:react-flexbox@3.0.0": {
+      "path": "github:jspm/nodelibs-path@0.1.0",
+      "react": "npm:react@0.14.3",
+      "react-dom": "npm:react-dom@0.14.3"
     },
     "npm:react-tap-event-plugin@0.2.1": {
       "fbjs": "npm:fbjs@0.2.1",
