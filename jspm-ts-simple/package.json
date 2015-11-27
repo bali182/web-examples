@@ -1,0 +1,9 @@
+{
+  "name": "jspm-ts-simple",
+  "jspm": {
+    "devDependencies": {
+      "ts": "npm:typescript@^1.6.2",
+      "typescript": "npm:typescript@^1.6.2"
+    }
+  }
+}
