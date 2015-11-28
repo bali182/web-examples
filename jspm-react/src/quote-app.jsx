@@ -6,9 +6,8 @@ export default class QuoteApp extends React.Component {
   render() {
     return <FlexBox row>
         <FlexBox column>
-          <QuoteList quoteSymbols={["MS", "YHOO", "AAPL", "GOOG", "MSFT", "JPM"]} />
+          <QuoteList />
         </FlexBox>
       </FlexBox>
-    
   }
 }
