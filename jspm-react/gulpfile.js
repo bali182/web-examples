@@ -2,17 +2,21 @@ const gulp = require('gulp'),
   jspm = require('gulp-jspm'),
   replace = require('gulp-html-replace'),
   rename = require('gulp-rename'),
-  minifyHtml = require('gulp-minify-html');
+  minifyHtml = require('gulp-minify-html'),
+  sourcemaps = require('gulp-sourcemaps');
 
 const JSPM_CONFIG = {
-  'selfExecutingBundle': true,
-  'plugin': true,
-  'format': 'global',
-  'minify': true
+  selfExecutingBundle: true,
+  plugin: true,
+  format: 'global',
+  minify: true,
+  sourceMap: true
 };
 
 gulp.task('build-js', [], () => gulp.src('src/main.jsx')
-  .pipe(jspm(JSPM_CONFIG))
+  .pipe(sourcemaps.init())
+    .pipe(jspm(JSPM_CONFIG))
+  .pipe(sourcemaps.write('.'))
   .pipe(rename('bundle.min.js'))
   .pipe(gulp.dest('dist'))
 );

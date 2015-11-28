@@ -22,6 +22,7 @@
     "gulp-html-replace": "^1.5.5",
     "gulp-jspm": "^0.5.5",
     "gulp-minify-html": "^1.0.4",
-    "gulp-rename": "^1.2.2"
+    "gulp-rename": "^1.2.2",
+    "gulp-sourcemaps": "^1.6.0"
   }
 }
