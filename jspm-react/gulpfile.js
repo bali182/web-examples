@@ -1,26 +1,26 @@
-var gulp = require('gulp'),
-  jspm = require('gulp-jspm-build'),
-  replacer = require('gulp-html-replace'),
-  uglify = require('gulp-uglify');
+const gulp = require('gulp'),
+  jspm = require('gulp-jspm'),
+  replace = require('gulp-html-replace'),
+  rename = require('gulp-rename'),
+  minifyHtml = require('gulp-minify-html');
 
-gulp.task('build-js', [], function () {
-  return jspm({
-    bundleOptions: {
-      minify: true,
-    },
-    bundleSfx: true, 
-    bundles: [
-      { src: 'src/main.jsx!', dst: 'bundle.min.js' }
-    ]
-  }).pipe(gulp.dest('dist'));
-})
+const JSPM_CONFIG = {
+  'selfExecutingBundle': true,
+  'plugin': true,
+  'format': 'global',
+  'minify': true
+};
 
-gulp.task('build-html', [], function () {
-  gulp.src('index.html')
-    .pipe(replacer({
-      'js': 'bundle.min.js'
-    }))
-    .pipe(gulp.dest('dist/'));
-})
+gulp.task('build-js', [], () => gulp.src('src/main.jsx')
+  .pipe(jspm(JSPM_CONFIG))
+  .pipe(rename('bundle.min.js'))
+  .pipe(gulp.dest('dist'))
+);
+
+gulp.task('build-html', [], () => gulp.src('index.html')
+  .pipe(replace({ 'js': 'bundle.min.js' }))
+  .pipe(minifyHtml())
+  .pipe(gulp.dest('dist/'))
+);
 
 gulp.task('default', ['build-js', 'build-html'])

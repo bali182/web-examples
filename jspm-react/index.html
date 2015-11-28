@@ -2,15 +2,17 @@
 
 <head>
   <title>jspm-react sample</title>
-  <script src="jspm_packages/system.src.js"></script>
-  <script src="config.js"></script>
 </head>
 
-<body>
+<body> 
   <div id="react-app"></div>
+  <!-- build:js -->
+  <script src="jspm_packages/system.src.js"></script>
+  <script src="config.js"></script>
   <script>
     System.import('./src/main.jsx!');
   </script>
+  <!-- endbuild -->
 </body>
 
 </html>
