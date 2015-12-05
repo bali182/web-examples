@@ -2,9 +2,8 @@
   "name": "jspm-react",
   "jspm": {
     "dependencies": {
+      "core-decorators": "npm:core-decorators@^0.9.0",
       "fetch": "github:github/fetch@^0.10.1",
-      "jsx": "github:floatdrop/plugin-jsx@^1.1.0",
-      "lazy": "npm:lazy.js@^0.4.2",
       "material-ui": "npm:material-ui@^0.13.4",
       "query-string": "npm:query-string@^3.0.0",
       "react": "npm:react@^0.14.3",

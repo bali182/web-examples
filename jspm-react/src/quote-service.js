@@ -1,6 +1,5 @@
 'use strict';
 import 'fetch'
-import lazy from 'lazy'
 import queryString from 'query-string'
 
 export default class QuoteService {
