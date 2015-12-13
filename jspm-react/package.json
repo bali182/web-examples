@@ -23,5 +23,6 @@
     "gulp-minify-html": "^1.0.4",
     "gulp-rename": "^1.2.2",
     "gulp-sourcemaps": "^1.6.0"
-  }
+  },
+  "ignore": "debug"
 }
