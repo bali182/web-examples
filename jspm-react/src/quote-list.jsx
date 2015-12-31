@@ -24,8 +24,8 @@ export default class QuoteList extends React.Component {
 
   render() {
     const quoteCards = this.state.quotes.map(quote => <QuoteCard key={"card-" + quote} quote={quote} />);
-    return <div>
-      <TextField value={this.state.quote} onChange={this.handleChange} hintText="Quote symbol..." />
+    return <div style={{width: '350px', margin: 'auto'}}>
+      <TextField value={this.state.quote} onChange={this.handleChange} hintText="Quote symbol..." style={{marginRight: '5px'}} />
       <RaisedButton label="Add" onClick={this.addSymbol} disabled={this.state.quote.length === 0} secondary={true}/>
       {quoteCards}
     </div>;

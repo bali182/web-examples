@@ -9,13 +9,11 @@ export default class QuoteService {
   }
 
   buildUrl(symbol) {
-    const query = `select * from yahoo.finance.quotes where symbol = "${symbol}"`;
-    const baseUrl = 'http://query.yahooapis.com/v1/public/yql';
     const queryParams = {
-      q: query,
+      q: `select * from yahoo.finance.quotes where symbol = "${symbol}"`,
       format: 'json',
       env: 'http://datatables.org/alltables.env'
     };
-    return `${baseUrl}?${queryString.stringify(queryParams) }&callback=`;
+    return `http://query.yahooapis.com/v1/public/yql?${queryString.stringify(queryParams) }&callback=`;
   }
 }
