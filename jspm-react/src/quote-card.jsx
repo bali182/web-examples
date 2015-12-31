@@ -28,14 +28,16 @@ export default class QuoteCard extends React.Component {
 
   render() {
     const quote = this.state.quote;
-    const symbol = quote.Symbol;
-    const name = quote.Name;
-    const askPrice = quote.Ask;
-    const bidPrice = quote.Bid;
+    
+    const symbol = quote.Symbol || 'Loading...';
+    const name = quote.Name || 'Loading...';
+    const askPrice = quote.Ask || '0.0';
+    const bidPrice = quote.Bid || '0.0';
+    
     return <Card>
       <CardHeader
-        title={symbol ? symbol : 'Loading...'}
-        subtitle={name ? name : 'Loading...'}
+        title={symbol}
+        subtitle={name}
         avatar={<Avatar backgroundColor={this.state.color}>{symbol ? symbol.charAt(0) : '?'}</Avatar>}/>
       <CardText >
         Bid price:<b>{`$${bidPrice}`}</b>, Ask price: <b>{`$${askPrice}`}</b>  
