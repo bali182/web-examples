@@ -17,26 +17,26 @@
     <div class="slides">
       <section>
         <h1>javascript</h1>
-        <h3>II. <span class="accent">&bull;</span> ES6/ES7 features</h3>
+        <h3>II. ES6/ES7 features</h3>
       </section>
       <section>
         <section>
           <h3>Classes</h3>
-          <table style="width: 100%;">
+          <table style="width: 120%;">
             <tr>
               <td>
                 <h4 style="text-align: center">ES5</h4>
                 <pre>
                 <code class="hljs javascript" data-trim >
 function Dog(name) {
-  this.name = name;
+  this.name = name
 }
 
 Dog.prototype.getName = function() {
-  return this.name;
-};
+  return this.name
+}
 
-var buster = new Dog("Buster");
+var buster = new Dog("Buster")
                 </code>
               </pre>
               </td>
@@ -46,15 +46,15 @@ var buster = new Dog("Buster");
                 <code class="hljs javascript" data-trim >
 class Dog {
   constructor(name) {
-    this.name = name;
+    this.name = name
   }
   
   getName() {
-    return this.name;
+    return this.name
   }
 }
 
-var buster = new Dog("Buster");
+var buster = new Dog("Buster")
               </code>
             </pre>
               </td>
@@ -63,22 +63,22 @@ var buster = new Dog("Buster");
         </section>
         <section>
           <h2>this</h2>
-          <pre style="width: 25%; display: block; margin: 0 auto !important;">
+          <pre style="width: 30%; display: block; margin: 0 auto !important;">
             <code class="hljs javascript" data-trim >
 function Dog(name) {
-  this.name = name;
+  this.name = name
 }
             </code>
           </pre>
         </section>
         <section>
           <h2>this</h2>
-          <table class="no-border" style="width: 55%; margin: 0 auto !important;">
+          <table class="no-border" style="width: 70%; margin: 0 auto !important;">
             <tr>
               <td>
                 <pre>
                   <code class="hljs javascript" data-trim >
-new Dog("Buster");
+new Dog("Buster")
                   </code>
                 </pre>
               </td>
@@ -115,14 +115,14 @@ undefined
           <pre style="width: 40%; display: block; margin: 0 auto !important;">
             <code class="hljs javascript" data-trim >
 function Dog(this, name) {
-  this.name = name;
+  this.name = name
 }
 
 // Not actually working code
 function new() {
-  var instance = {};
-  Dog(instance, "Buster");
-  return instance;
+  var instance = {}
+  Dog(instance, "Buster")
+  return instance
 }
             </code>
           </pre>
@@ -131,12 +131,12 @@ function new() {
         <section>
           <h2>this</h2>
 
-          <pre style="width: 40%; display: block; margin: 0 auto !important;">
+          <pre style="width: 50%; display: block; margin: 0 auto !important;">
             <code class="hljs javascript" data-trim >
-var dog = new Dog("Buster");
+var dog = new Dog("Buster")
 
 function bark() {
-  return this.name + " barking";
+  return this.name + " barking"
 }
             </code>
           </pre>
@@ -145,15 +145,15 @@ function bark() {
               <td>
                 <pre>
                   <code class="hljs javascript" data-trim >
-bark();
+bark()
                   </code>
                 </pre>
               </td>
               <td>
                 <pre>
                   <code class="hljs javascript" data-trim >
-dog.bark = bark;
-dog.bark();
+dog.bark = bark
+dog.bark()
                   </code>
                 </pre>
               </td>
@@ -179,11 +179,11 @@ dog.bark();
 
         <section>
           <h2>prototype</h2>
-          <pre style="width: 50%; display: block; margin: 0 auto !important;">
+          <pre style="width: 60%; display: block; margin: 0 auto !important;">
             <code class="hljs javascript" data-trim >
-var foo = {}; // empty object literal
+var foo = {} // empty object literal
 foo.__proto__ === Object.prototype // true
-foo.toString(); // from Object.prototype
+foo.toString() // from Object.prototype
             </code>
           </pre>
           <span class="box">
@@ -197,21 +197,21 @@ foo.toString(); // from Object.prototype
 
         <section>
           <h2>prototype</h2>
-          <pre style="width: 40%; display: block; margin: 0 auto !important;">
+          <pre style="width: 50%; display: block; margin: 0 auto !important;">
             <code class="hljs javascript" data-trim >
 function Dog(name) {
-  this.name = name;
+  this.name = name
 }
 
 Dog.prototype.bark = function() {
-  return this.name + " barking";
+  return this.name + " barking"
 }
 
-var buster = new Dog("Buster");
+var buster = new Dog("Buster")
 
-buster.name;
-buster.bark();
-buster.toString();
+buster.name
+buster.bark()
+buster.toString()
             </code>
           </pre>
           <span class="box">
@@ -232,21 +232,21 @@ buster.toString();
           <pre style="width: 60%; display: block; margin: 0 auto !important;">
             <code class="hljs javascript" data-trim >
 function Husky(name) {
-  Dog.call(this, name);
+  Dog.call(this, name)
   // Rest of the constructor
 }
 
-Husky.prototype = Object.create(Dog.prototype);
+Husky.prototype = Object.create(Dog.prototype)
 
 Husky.prototype.describe = function() {
-  return this.name + ", and I'm a Husky";
-};
+  return this.name + ", and I'm a Husky"
+}
 
-var buddy = new Husky("Buddy");
-buddy.name;
-buddy.describe();
-buddy.bark();
-buddy.toString();
+var buddy = new Husky("Buddy")
+buddy.name
+buddy.describe()
+buddy.bark()
+buddy.toString()
             </code>
           </pre>
           <span class="box">
@@ -270,28 +270,28 @@ buddy.toString();
 
       <section>
         <h3>Inheritance</h3>
-        <table style="width: 100%;">
+        <table style="width: 110%;">
           <tr>
             <td>
               <h4 style="text-align: center">ES5</h4>
               <pre>
                 <code class="hljs javascript" data-trim >
 function Husky(name) {
-  Dog.call(this, name);
+  Dog.call(this, name)
   // Rest of the constructor
 }
 
 Husky.prototype = Object.create(
   Dog.prototype
-);
+)
 
 Husky.prototype.describe = function() {
   // Dog.prototype.getName.call(this)
   return this.getName()
-    + ", and I'm a Husky";
-};
+    + ", and I'm a Husky"
+}
 
-var buddy = new Husky("Buddy");
+var buddy = new Husky("Buddy")
                 </code>
               </pre>
             </td>
@@ -301,18 +301,18 @@ var buddy = new Husky("Buddy");
                 <code class="hljs javascript" data-trim >
 class Husky extends Dog {
   constructor(name) {
-    super(name);
+    super(name)
     // Rest of the constructor
   }
   
   describe() {
     // same as super.getName()
     return this.getName() 
-      + ", and I'm a Husky";
+      + ", and I'm a Husky"
   }
 }
 
-var buddy = new Husky("Buddy");
+var buddy = new Husky("Buddy")
               </code>
             </pre>
             </td>
@@ -322,7 +322,7 @@ var buddy = new Husky("Buddy");
 
       <section>
         <h3>Lambda expressions</h3>
-        <table style="width: 100%;">
+        <table style="width: 110%;">
           <tr>
             <td>
               <h4 style="text-align: center">ES5</h4>
@@ -330,12 +330,12 @@ var buddy = new Husky("Buddy");
                 <code class="hljs javascript" data-trim >
 dogs.filter(function(animal) {
   return animal.name === 'Buster'
-});
+})
 
 dogs.forEach(function(dog, index) {
-  doSomethingWithDog(dog);
+  doSomethingWithDog(dog)
   console.log("Done " + index)
-});
+})
                 </code>
               </pre>
             </td>
@@ -346,9 +346,9 @@ dogs.forEach(function(dog, index) {
 dogs.filter(a => a.name === 'Buster');
 
 dogs.forEach((dog, index) => {
-  doSomethingWithDog(dog);
+  doSomethingWithDog(dog)
   console.log("Done " + index)
-});
+})
                 </code>
             </pre>
             </td>
@@ -358,19 +358,19 @@ dogs.forEach((dog, index) => {
 
       <section>
         <h3>String templates</h3>
-        <table style="width: 100%; table-layout: fixed;">
+        <table style="width: 110%; table-layout: fixed;">
           <tr>
             <td>
               <h4 style="text-align: center">ES5</h4>
               <pre>
                 <code class="hljs javascript" data-trim >
-var an = animal.name;
-var me = person.name;
+var an = animal.name
+var me = person.name
 
 var str = "Hello " 
   + an
   + ", I'm "
-  + me;
+  + me
                 </code>
               </pre>
             </td>
@@ -378,8 +378,8 @@ var str = "Hello "
               <h4 style="text-align: center">ES6</h4>
               <pre>
                 <code class="hljs javascript" data-trim >
-var an = animal.name;
-var me = person.name;
+var an = animal.name
+var me = person.name
 
 var str = `Hello ${an}, I'm ${me}`
                 </code>
@@ -397,19 +397,19 @@ var str = `Hello ${an}, I'm ${me}`
               <h4 style="text-align: center">ES5</h4>
               <pre>
                 <code class="hljs javascript" data-trim >
-var array = [1, 2];
-var a = array[0];
-var b = array[1];
+var array = [1, 2]
+var a = array[0]
+var b = array[1]
 var c = array[2] === undefined 
   ? 3
-  : array[2];
+  : array[2]
 
-var object = {x: 1, y: 2};
-var x = object.x;
-var y = object.y;
+var object = {x: 1, y: 2}
+var x = object.x
+var y = object.y
 var z = object.z === undefined
   ? 5 
-  : object.z;
+  : object.z
                 </code>
               </pre>
             </td>
@@ -442,15 +442,15 @@ var {x, y, z = 5} = {x : 1, y: 2}
                 <code class="hljs javascript" data-trim >
 function varargs() {
   var args = [], 
-      len = arguments.length;
+      len = arguments.length
   for (var i = 0; i < len; i++) {
-    args.push(arguments[i]);
+    args.push(arguments[i])
   }
   // args ready for use
 }
 
-var array = [x, y, z];
-varargs.apply(varargs, array);
+var array = [x, y, z]
+varargs.apply(varargs, array)
 
 function defArgs(a) {
   a = a === undefined 
@@ -473,8 +473,8 @@ function varargs(...args) {
 
 
 
-var array = [x, y, z];
-varargs(...array);
+var array = [x, y, z]
+varargs(...array)
 
 function defArgs(a = 'default') {
   // a = argument or'default' 
@@ -491,11 +491,11 @@ function defArgs(a = 'default') {
         <pre style="width: 60%; display: block; margin: 0 auto !important;">
           <code  class="hljs javascript" data-trim >
 function fullName({ first, last, ...rest }) {
-    return `${first} ${last}`;
+    return `${first} ${last}`
 }
 
 function headAndTail([head, ...tail]) {
-    return `head: ${head} tail: [${tail}]`;
+    return `head: ${head} tail: [${tail}]`
 }
           </code>
         </pre>
@@ -503,7 +503,7 @@ function headAndTail([head, ...tail]) {
 
       <section>
         <h3>Block scoped variables</h3>
-        <table style="width: 100%; table-layout: fixed;">
+        <table style="width: 110%; table-layout: fixed;">
           <tr>
             <td>
               <h4 style="text-align: center">ES5</h4>
@@ -511,9 +511,9 @@ function headAndTail([head, ...tail]) {
                 <code class="hljs javascript" data-trim >
 function fn(a) {
   if (a) {
-    var b = "I'm sneaky!";
+    var b = "I'm sneaky!"
   }
-  console.log(b); // ???
+  console.log(b) // ???
 }
                 </code>
               </pre>
@@ -524,13 +524,13 @@ function fn(a) {
                 <code class="hljs javascript" data-trim >
 function fn(a) {
   if(a) {
-    let b = "I'm block scoped.";
-    const c = "Can't change me!";
-    c = "It's not a phase!"; // ✖ 
-    b = "This will work"; // ✔
+    let b = "I'm block scoped."
+    const c = "Can't change me!"
+    c = "It's not a phase!" // ✖ 
+    b = "This will work" // ✔
   }
-  console.log(b); // ✖ 
-  console.log(c); // ✖ 
+  console.log(b) // ✖ 
+  console.log(c) // ✖ 
 }
                 </code>
             </pre>
@@ -541,25 +541,25 @@ function fn(a) {
 
       <section>
         <h3>"Advanced" collections</h3>
-        <table style="width: 85%">
+        <table style="width: 100%">
           <tr>
             <td>
               <pre>
                 <code class="hljs javascript" data-trim >
-var s = new Set();
-s.add("a").add("b").add("a");
-s.size === 2;
-s.has("a") === true;
+var s = new Set()
+s.add("a").add("b").add("a")
+s.size === 2
+s.has("a") === true
                 </code>
               </pre>
             </td>
             <td>
               <pre>
                 <code class="hljs javascript" data-trim >
-var m = new Map();
-m.set("hello", 42);
-m.set(s, 34); // object as key
-m.get(s) === 34;
+var m = new Map()
+m.set("hello", 42)
+m.set(s, 34) // object as key
+m.get(s) === 34
                 </code>
               </pre>
             </td>
@@ -571,13 +571,13 @@ m.get(s) === 34;
         <h3>Symbols</h3>
         <pre style="width: 60%; display: block; margin: 0 auto !important;">
           <code  class="hljs javascript" data-trim >
-const s = Symbol();
-Symbol("a") === Symbol("a"); // false
+const s = Symbol()
+Symbol("a") === Symbol("a") // false
 
 
-const key = Symbol("key");
-const obj = { key : "value" };
-console.log(obj[Symbol("key")]); // undefined
+const key = Symbol("key")
+const obj = { key : "value" }
+console.log(obj[Symbol("key")]) // undefined
 
           </code>
         </pre>
@@ -591,12 +591,12 @@ console.log(obj[Symbol("key")]); // undefined
               <pre>
                 <code class="hljs ts" data-trim >
 interface IteratorResult {
-  done: boolean;
-  value: any;
+  done: boolean
+  value: any
 }
 
 interface Iterator {
-  next(): IteratorResult;
+  next(): IteratorResult
 }
 
 interface Iterable {
@@ -608,7 +608,7 @@ interface Iterable {
             <td>
               <pre>
                 <code class="hljs js" data-trim >
-const array = [1, 2, 3];
+const array = [1, 2, 3]
 for (let n of array) {
   // n is 1, 2, 3 here 
 }
@@ -621,18 +621,18 @@ for (let n of array) {
 
       <section>
         <h3>Generators</h3>
-        <table style="width: 100%">
+        <table style="width: 110%">
           <tr>
             <td>
               <pre>
                 <code class="hljs ts" data-trim >
 function* entries(object) {
-  const keys = Object.keys(object);
+  const keys = Object.keys(object)
   for (let key of keys) {
     yield [
       key, 
       object[key]
-    ];
+    ]
   }
 }
                 </code>
@@ -644,10 +644,10 @@ function* entries(object) {
 const dog = { 
   name: 'Doge', 
   breed: 'Shiba Inu' 
-};
+}
 
 for (let [key,val] of entries(dog)) {
-  console.log(`${key}: ${val}`);
+  console.log(`${key}: ${val}`)
 }
                 </code>
               </pre>
@@ -659,21 +659,21 @@ for (let [key,val] of entries(dog)) {
       <!-- Promise -->
       <section>
         <h3>Promise</h3>
-        <pre style="width: 60%; display: block; margin: 0 auto !important;">
+        <pre style="width: 70%; display: block; margin: 0 auto !important;">
           <code  class="hljs javascript" data-trim >
 function getJsonAsync(url, onSuccess, onError) {
-  const request = new XMLHttpRequest();
+  const request = new XMLHttpRequest()
   request.onreadystatechange = () => {
     if (request.readyState === 4) {
       if(request.status === 200) {
         onSuccess(JSON.parse(request.responseText)) 
       } else {
-        onError(request.statusText);  
+        onError(request.statusText)
       }
     } 
   }
-  request.open("GET", url, true);
-  request.send(null);
+  request.open("GET", url, true)
+  request.send(null)
 }
           </code>
         </pre>
@@ -684,34 +684,34 @@ function getJsonAsync(url, onSuccess, onError) {
         <pre style="width: 60%; display: block; margin: 0 auto !important;">
           <code  class="hljs javascript" data-trim >
 getJsonAsync(dogUrl, dog => {
-  displayOnUi(dog.name);
+  displayOnUi(dog.name)
   dog.childIds.forEach(id => {
     getJsonAsync(url + id, child => {
-      displayOnUi(child.name);
+      displayOnUi(child.name)
     }, error => {
-      displayOnUi(error);
-    });
-  });
+      displayOnUi(error)
+    })
+  })
 }, error => {
-  displayOnUi(error);
-});
+  displayOnUi(error)
+})
           </code>
         </pre>
       </section>
       <section>
         <h3>Promise</h3>
-        <pre style="width: 65%; display: block; margin: 0 auto !important;">
+        <pre style="width: 70%; display: block; margin: 0 auto !important;">
           <code  class="hljs javascript" data-trim >
 function fetchJson(url) {
   return new Promise((resolve, reject) => {
-    getJsonAsync(url, resolve, reject);
-  });
+    getJsonAsync(url, resolve, reject)
+  })
 }
 
-const promise = fetchJson("http://my-api.com/buster");
+const promise = fetchJson("http://my-api.com/buster")
 
 promise
-  .then(dog => { displayOnUi(dog.name); return dog; })
+  .then(dog => { displayOnUi(dog.name); return dog })
   .then(dog => dog.childIds)
   .then(ids => Promise.all(
     ids.map(id => fetchJson(`http://my-api.com/${id}`))
@@ -723,7 +723,7 @@ promise
       </section>
       <section>
         <h3>Promise</h3>
-        <table style="width: 100%">
+        <table style="width: 110%">
           <tr>
             <td>
               <pre>
@@ -731,13 +731,13 @@ promise
 Promise.all([p1, p2, ... pN])
   .then(res => {
     // res = [r1, r2, ... rN]
-  });
+  })
   
 Promise.race([p1, p2, ... pN])
   .then(res => {
     // Whoever was fastest
     // e.g. res = p10 
-  });
+  })
                 </code>
               </pre>
             </td>
@@ -767,7 +767,7 @@ Promise.reject(new Error(':('))
                 <code class="hljs js" style="text-align: center; font-size: 20px">a.js</code>
                 <code class="hljs ts" data-trim >
 export function add(x, y) {
-  return x + y;
+  return x + y
 }
 
 export function multiply(x, y) {
@@ -791,9 +791,7 @@ import {add, multiply} from './a'
       </section>
 
       <section>
-        <h3>Something from the very far future...</h3>
         <h1>ES7 features</h1>
-        <h4 style="opacity: 0.3 !important">Really?</h4>
       </section>
 
       <section>
@@ -807,8 +805,8 @@ const grumpy = fetchJson("http://cats.com/grumpy")
       .map(name => fetch(`http://cats.com/${name}`))
     return Promise.all(friendPromises)
       .then(friends => {
-        grumpy.friends = friends;
-        return grumpy;
+        grumpy.friends = friends
+        return grumpy
       })
   })
 
@@ -821,12 +819,12 @@ const grumpy = fetchJson("http://cats.com/grumpy")
         <pre style="width: 80%; display: block; margin: 0 auto !important;">
           <code  class="hljs javascript" data-trim >
 async function fetchGrumpyWithFriends() {
-  const response = await fetch("http://cats.com/grumpy");
+  const response = await fetch("http://cats.com/grumpy")
   const friendPromises = grumpy.namesOfFriends
     .map(name => fetch(`http://cats.com/${name}`)
-  const friendResponses = await Promise.all(friendPromises);
-  grumpy.friends = friends;
-  return grumpy; 
+  const friendResponses = await Promise.all(friendPromises)
+  grumpy.friends = friends
+  return grumpy
 }
           </code>
         </pre>
@@ -837,12 +835,12 @@ async function fetchGrumpyWithFriends() {
           <code  class="hljs javascript" data-trim >
 const noGrumpy = await fetchGrumpyWithFriends(); // ✖
 
-const grumpy = fetchGrumpyWithFriends(); // ✔
-grumpy.then(c => console.log(c)); // ✔
+const grumpy = fetchGrumpyWithFriends() // ✔
+grumpy.then(c => console.log(c)) // ✔
 
 (async () => 
-  console.log(await fetchGrumpyWithFriends()); // ✔
-)();
+  console.log(await fetchGrumpyWithFriends()) // ✔
+)()
           </code>
         </pre>
       </section>
@@ -853,26 +851,26 @@ grumpy.then(c => console.log(c)); // ✔
           <code  class="hljs javascript" data-trim >
 class Dog {
   @loud bark() {
-    return "barking";
+    return "barking"
   }
 }
 
 function loud(target, key, descriptor) {
-  const bark = descriptor.value;
-  descriptor.value = () => bark() + " loud";
-  return descriptor;
+  const bark = descriptor.value
+  descriptor.value = () => bark() + " loud"
+  return descriptor
 }
 
 // "barking loud"
-console.log(new Dog().bark());
+console.log(new Dog().bark())
           </code>
         </pre>
       </section>
 
-      <section>
+      <!--<section>
         <h3>Decorators</h3>
         <h5>How does it work?</h5>
-        <table style="width: 70%">
+        <table style="width: 80%">
           <tr>
             <td>
               <pre>
@@ -913,12 +911,12 @@ Object.defineProperty(
             </td>
           </tr>
         </table>
-      </section>
+      </section> -->
 
       <section>
         <h3>Decorators</h3>
         <h5>Class decorators</h5>
-        <pre style="width: 28%; display: block; margin: 0 auto !important;">
+        <pre style="width: 32%; display: block; margin: 0 auto !important;">
           <code  class="hljs javascript" data-trim >
 class Singer {
   sing() { ... }
@@ -933,7 +931,8 @@ class Flyer {
 class Bird {
 }
 
-new Bird().fly(); // ✔
+new Bird().fly() // ✔
+new Bird().sing() // ✔
           </code>
         </pre>
       </section>
@@ -941,18 +940,18 @@ new Bird().fly(); // ✔
       <section>
         <h3>Decorators</h3>
         <h5>Class decorators</h5>
-        <pre style="width: 65%; display: block; margin: 0 auto !important;">
+        <pre style="width: 80%; display: block; margin: 0 auto !important;">
           <code  class="hljs javascript" data-trim >
 function mixin(target, ...mixins) {
   for (let i = 0, l = mixins.length; i < l; i++) {
-    const descs = getOwnPropertyDescriptors(mixins[i]);
+    const descs = getOwnPropertyDescriptors(mixins[i])
     for (const key in descs) {
       if (!(key in target.prototype)) {
         Object.defineProperty(
           target.prototype, 
           key, 
           descs[key]
-        );
+        )
       }
     }
   }
@@ -965,7 +964,7 @@ function mixin(target, ...mixins) {
       <section>
         <h3>Finally</h3>
         <h5>We can have this in JS too =)</h5>
-        <pre style="width: 60%; display: block; margin: 0 auto !important;">
+        <pre style="width: 70%; display: block; margin: 0 auto !important;">
           <code  class="hljs ts" data-trim >
 @XmlElementWrapper(name="orders")
 @XmlJavaTypeAdapter(OrderJaxbAdapter.class)
