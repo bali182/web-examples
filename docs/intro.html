@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>es6</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="css/reveal.css">
+  <link rel="stylesheet" href="css/theme/league.css" id="theme">
+  <link rel="stylesheet" href="css/overrides.css">
+  <link rel="stylesheet" href="lib/css/obsidian-accent.css">
+</head>
+
+<body>
+
+  <div class="reveal">
+    <div class="slides">
+
+      <section>
+        <h1>javascript</h1>
+        <h3>I. <span class="accent">&bull;</span> Introduction</h3>
+      </section>
+
+      <section>
+        <h1>The beginning</h1>
+        <ul>
+          <li class="fragment">1995, Brendan Eich, Netscape</li>
+          <li class="fragment">Mocha -> LiveScript -> JS</li>
+          <li class="fragment">1996, JScript & IE3, Microsoft</li>
+        </ul>
+      </section>
+
+      <section>
+        <h1>ESX</h1>
+        <h3 class="fragment"><span class="highlight-text">E</span>CMA<span class="highlight-text">S</span>cript</h3>
+        <h4 class="fragment">
+          <span class="highlight-text">E</span>uropean 
+          <span class="highlight-text">C</span>omputer 
+          <span class="highlight-text">M</span>anufacturers 
+          <span class="highlight-text">A</span>ssociation
+        </h4>
+        <h5 class="fragment">
+          Now it's <span class="highlight-text">Ecma</span> International
+        </h5>
+      </section>
+
+
+      <section>
+        <h1>Proposals</h1>
+        <h3>You <span class="highlight-text">Can</span> influence the future of JS</h3>
+        <ul>
+          <li class="fragment">Read the <a href="https://tc39.github.io/process-document/">TC39</a> process document.</li>
+          <li class="fragment"><a href="http://www.ecma-international.org/memento/register_TC39_Royalty_Free_Task_Group.php">Register</a> as a
+            TC39 contributor</li>
+          <li class="fragment">Submit a pull request for your <a href="https://github.com/tc39/ecma262">proposal</a>.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h1>Node vs Browser</h1>
+      </section>
+    </div>
+  </div>
+
+  <script src="lib/js/head.min.js"></script>
+  <script src="js/reveal.js"></script>
+
+  <script>
+    Reveal.initialize({
+      controls: false,
+      progress: true,
+      history: true,
+      center: true,
+      transition: 'concave', // none/fade/slide/convex/concave/zoom
+      dependencies: [
+        { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+        { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+        { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+        { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+        { src: 'plugin/zoom-js/zoom.js', async: true },
+        { src: 'plugin/notes/notes.js', async: true }
+      ]
+    });
+    Reveal.configure({
+      keyboard: {
+        39: function () {
+          if (Reveal.isLastSlide()) {
+            window.location = 'index.html';
+          } else {
+            Reveal.right();
+          }
+        },
+        37: function () {
+          if (Reveal.isFirstSlide()) {
+            window.location = 'index.html';
+          } else {
+            Reveal.left();
+          }
+        }
+      }
+    });
+  </script>
+
+</body>
+
+</html>
