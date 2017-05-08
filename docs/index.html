@@ -374,6 +374,11 @@ class ChildHusky extends Husky {
               <h4 style="text-align: center">ES5</h4>
               <pre>
                 <code class="hljs javascript" data-trim >
+var dogs = [ 
+  new Dog('Buster'), 
+  new Dog('Foo') 
+]
+
 dogs.filter(function(animal) {
   return animal.name === 'Buster'
 })
@@ -389,6 +394,11 @@ dogs.forEach(function(dog, index) {
               <h4 style="text-align: center">ES6</h4>
               <pre>
                 <code class="hljs javascript" data-trim >
+var dogs = [ 
+  new Dog('Buster'), 
+  new Dog('Foo') 
+]
+
 dogs.filter(a => a.name === 'Buster');
 
 dogs.forEach((dog, index) => {
@@ -410,7 +420,7 @@ dogs.forEach((dog, index) => {
               <h4 style="text-align: center">ES5</h4>
               <pre>
                 <code class="hljs javascript" data-trim >
-var an = animal.name
+var an = dog.name
 var me = person.name
 
 var str = "Hello " 
@@ -424,7 +434,7 @@ var str = "Hello "
               <h4 style="text-align: center">ES6</h4>
               <pre>
                 <code class="hljs javascript" data-trim >
-var an = animal.name
+var an = dog.name
 var me = person.name
 
 var str = `Hello ${an}, I'm ${me}`
@@ -622,7 +632,7 @@ Symbol("a") === Symbol("a") // false
 
 
 const key = Symbol("key")
-const obj = { key : "value" }
+const obj = { [key] : "value" }
 console.log(obj[Symbol("key")]) // undefined
 
           </code>
@@ -693,6 +703,10 @@ function getJsonAsync(url, onSuccess, onError) {
         <h3>Promise</h3>
         <pre style="width: 60%; display: block; margin: 0 auto !important;">
           <code  class="hljs javascript" data-trim >
+function displayOnUi(stuff) {
+  // whatever
+}
+
 getJsonAsync(dogUrl, dog => {
   displayOnUi(dog.name)
   dog.childIds.forEach(id => {
@@ -1032,12 +1046,9 @@ private List&lt;Order&gt; getOrders() {
         </pre>
       </section>
       <section>
-        <h3>Transpilers</h3>
+        <h3>Transpilers (use ES* today)</h3>
         <a href="http://babeljs.io/">
           <img class="img-link" src="img/babellogo.png" width="300px" style="border: none; background: transparent; box-shadow: none; margin-right: 20px" />
-        </a>
-        <a href="https://github.com/google/traceur-compiler">
-          <img class="img-link" src="img/traceurlogo.png" width="220px" style="border: none; background: transparent; box-shadow: none" />
         </a>
       </section>
 
