@@ -321,6 +321,52 @@ var buddy = new Husky("Buddy")
       </section>
 
       <section>
+        <h3>Inheritance</h3>
+        <table style="width: 110%;">
+          <tr>
+            <td>
+              <h4 style="text-align: center">ES5</h4>
+              <pre>
+                <code class="hljs javascript" data-trim >
+function ChildHusky(name) {
+  Husky.call(this, name)
+  // Rest of the constructor
+}
+
+ChildHusky.prototype = Object.create(
+  Husky.prototype
+)
+
+ChildHusky.prototype.bark = function() {
+  return Husky.prototype.bark.call(this)
+    + ' (high pitch)'
+}
+                </code>
+              </pre>
+            </td>
+            <td>
+              <h4 style="text-align: center">ES6</h4>
+              <pre>
+                <code class="hljs javascript" data-trim >
+class ChildHusky extends Husky {
+  constructor(name) {
+    super(name)
+    // Rest of the constructor
+  }
+  
+  bark() {
+    return super.bark() 
+      + ' (high pitch)'
+  }
+}
+              </code>
+            </pre>
+            </td>
+          </tr>
+        </table>
+      </section>
+
+      <section>
         <h3>Lambda expressions</h3>
         <table style="width: 110%;">
           <tr>
@@ -490,12 +536,12 @@ function defArgs(a = 'default') {
         <h3>Destructing parameters</h3>
         <pre style="width: 60%; display: block; margin: 0 auto !important;">
           <code  class="hljs javascript" data-trim >
-function fullName({ first, last, ...rest }) {
-    return `${first} ${last}`
+function fullName({ foo, bar, ...rest }) {
+    return `${foo} ${bar}`
 }
 
 function headAndTail([head, ...tail]) {
-    return `head: ${head} tail: [${tail}]`
+    return `${head} ...[${tail.join(', ')}]`
 }
           </code>
         </pre>
@@ -524,10 +570,10 @@ function fn(a) {
                 <code class="hljs javascript" data-trim >
 function fn(a) {
   if(a) {
-    let b = "I'm block scoped."
+    let b = "I'm changeable."
     const c = "Can't change me!"
-    c = "It's not a phase!" // ✖ 
-    b = "This will work" // ✔
+    b = "It's ok" // ✔
+    c = "It won't work" // ✖ 
   }
   console.log(b) // ✖ 
   console.log(c) // ✖ 
@@ -584,43 +630,7 @@ console.log(obj[Symbol("key")]) // undefined
       </section>
 
       <section>
-        <h3>Iterators and Iterables</h3>
-        <table style="width: 85%">
-          <tr>
-            <td>
-              <pre>
-                <code class="hljs ts" data-trim >
-interface IteratorResult {
-  done: boolean
-  value: any
-}
-
-interface Iterator {
-  next(): IteratorResult
-}
-
-interface Iterable {
-  [Symbol.iterator](): Iterator
-}
-                </code>
-              </pre>
-            </td>
-            <td>
-              <pre>
-                <code class="hljs js" data-trim >
-const array = [1, 2, 3]
-for (let n of array) {
-  // n is 1, 2, 3 here 
-}
-                </code>
-              </pre>
-            </td>
-          </tr>
-        </table>
-      </section>
-
-      <section>
-        <h3>Generators</h3>
+        <h3>Generators &amp; for-of</h3>
         <table style="width: 110%">
           <tr>
             <td>
@@ -759,8 +769,42 @@ Promise.reject(new Error(':('))
       </section>
 
       <section>
-        <h3>Module system</h3>
-        <table style="width: 100%">
+        <h3>Module system (ES5)</h3>
+        <table style="width: 120%">
+          <tr>
+            <td>
+              <pre>
+                <code class="hljs js" style="text-align: center; font-size: 20px">a.js</code>
+                <code class="hljs ts" data-trim >
+function add(x, y) {
+  return x + y
+}
+
+function multiply(x, y) {
+  return x * y
+}
+
+module.exports.add = add
+module.exports.multiply = multiply
+                </code>
+              </pre>
+            </td>
+            <td>
+              <pre>
+                <code class="hljs js" style="text-align: center; font-size: 20px">b.js</code>
+                <code class="hljs js" data-trim >
+var mathModule = require('./a')
+var sum = mathModule.add(1, 2)
+var product = mathModule.multiply(2, 3)
+                </code>
+              </pre>
+            </td>
+          </tr>
+        </table>
+      </section>
+      <section>
+        <h3>Module system (ES6)</h3>
+        <table style="width: 120%">
           <tr>
             <td>
               <pre>
@@ -773,6 +817,10 @@ export function add(x, y) {
 export function multiply(x, y) {
   return x * y
 }
+
+export default function pow(x, y) {
+  return Math.pow(x, y)
+}
                 </code>
               </pre>
             </td>
@@ -781,13 +829,13 @@ export function multiply(x, y) {
                 <code class="hljs js" style="text-align: center; font-size: 20px">b.js</code>
                 <code class="hljs js" data-trim >
 import * as math from './a'
-import {add, multiply} from './a'
+import { add, multiply } from './a'
+import pow from './a'
                 </code>
               </pre>
             </td>
           </tr>
         </table>
-        <p>More about this later...</p>
       </section>
 
       <section>
